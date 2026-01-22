@@ -5,32 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KABOSSES - Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation d'ouverture */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 1.5s ease-out forwards;
+            background-color: #0f0f0f;
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* Image de fond avec opacité réduite */
+        .bg-hero {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3; /* Opacité réduite pour la lecture */
+            z-index: -1; /* Place l'image derrière le texte */
+            filter: grayscale(50%); /* Un peu de gris pour le style industriel */
+        }
+    </style>
 </head>
-<body class="bg-[#0f0f0f] text-white font-sans">
-    <nav class="p-8 flex justify-between items-center border-b border-gray-800">
+<body class="text-white font-sans">
+
+    <div class="bg-hero"></div>
+
+    <nav class="p-8 flex justify-between items-center border-b border-gray-800/50 backdrop-blur-sm">
         <h1 class="font-bold text-2xl tracking-tighter text-green-500 uppercase">Kabosses</h1>
         <a href="viewer.html" class="uppercase text-[10px] tracking-[0.3em] hover:text-green-500 transition">Explorer la Galerie</a>
     </nav>
-    <header class="py-32 text-center px-6">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter">L'ART NÉ DE LA <br><span class="text-green-500">RÉCUPÉRATION</span></h2>
-        <p class="text-gray-500 max-w-xl mx-auto mb-12 text-sm uppercase tracking-widest leading-relaxed">Soudure à la main • Pièces Uniques • Métaux Oubliés</p>
-        <a href="viewer.html" class="inline-block border border-white px-12 py-5 uppercase text-[10px] font-bold tracking-[0.4em] hover:bg-white hover:text-black transition-all">Entrer dans la galerie</a>
-        <style>
-    /* Animation d'entrée */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
 
-    body {
-        animation: fadeIn 1s ease-out forwards;
-    }
+    <header class="h-[80vh] flex flex-col justify-center items-center text-center px-6">
+        <h2 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-none">
+            L'ART NÉ DE LA <br>
+            <span class="text-green-500">RÉCUPÉRATION</span>
+        </h2>
+        
+        <p class="text-gray-300 max-w-xl mx-auto mb-12 text-sm uppercase tracking-[0.4em] font-light">
+            Soudure à la main • Pièces Uniques • Métaux Oubliés
+        </p>
 
-    /* Optionnel : transition douce sur les liens */
-    a {
-        transition: all 0.3s ease-in-out;
-    }
-</style>
+        <a href="viewer.html" class="inline-block border border-green-500 text-green-500 px-12 py-5 uppercase text-[10px] font-bold tracking-[0.4em] hover:bg-green-500 hover:text-black transition-all duration-500 shadow-2xl">
+            Entrer dans la galerie
+        </a>
     </header>
+
 </body>
 </html>
