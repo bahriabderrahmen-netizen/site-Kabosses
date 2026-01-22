@@ -6,56 +6,21 @@
     <title>KABOSSES - Galerie</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 font-sans text-gray-900">
-
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center sticky top-0 z-50">
-    <a href="viewer.html" class="font-bold text-xl tracking-tighter">
-    <span class="text-black">KABOSSES</span>
-</a>
-    <a href="index.HTML" class="text-green-600 font-medium hover:underline">← Accueil</a>
-</nav>
-
-    <main class="max-w-6xl mx-auto p-6">
-        <header class="mb-12 text-center">
-            <h2 class="text-4xl font-extrabold mb-4">La Galerie</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Découvrez l'histoire de chaque création unique née de la récupération métallique.</p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
-                <img src="assets/1.jpeg" alt="Œuvre 1" class="w-full h-64 object-cover">
-                <div class="p-6 flex-grow">
-                    <h3 class="text-2xl font-bold mb-2">Le Veilleur</h3>
-                    <p class="text-gray-600 text-sm mb-4">Forgé à partir de pièces de moteur agricole, cette pièce symbolise la protection de la terre.</p>
-                    <a href="produit1.html" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">Consulter l'œuvre</a>
+<body class="bg-[#0f0f0f] text-white font-sans">
+    <nav class="p-8 flex justify-between items-center border-b border-gray-800">
+        <a href="index.html" class="font-bold text-2xl tracking-tighter text-green-500 uppercase">Kabosses</a>
+        <a href="index.html" class="text-gray-500 hover:text-white uppercase text-[10px] tracking-[0.3em]">Retour</a>
+    </nav>
+    <main class="max-w-7xl mx-auto p-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="group">
+                <div class="overflow-hidden bg-[#1a1a1a] mb-6">
+                    <img src="assets/1.jpg" class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100">
                 </div>
+                <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-2">Le Veilleur</h3>
+                <a href="produit1.html" class="text-green-500 text-[10px] uppercase font-bold tracking-[0.3em] border-b border-green-500/30 pb-1 hover:border-green-500 transition">Consulter l'œuvre</a>
             </div>
-
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
-                <img src="assets/2.jpeg" alt="Œuvre 2" class="w-full h-64 object-cover">
-                <div class="p-6 flex-grow">
-                    <h3 class="text-2xl font-bold mb-2">L'Envol</h3>
-                    <p class="text-gray-600 text-sm mb-4">Une sculpture légère créée avec des chaînes de vélo recyclées, illustrant le mouvement.</p>
-                    <a href="#" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">Consulter l'œuvre</a>
-                </div>
             </div>
-
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
-                <img src="assets/3.jpeg" alt="Œuvre 3" class="w-full h-64 object-cover">
-                <div class="p-6 flex-grow">
-                    <h3 class="text-2xl font-bold mb-2">Résilience</h3>
-                    <p class="text-gray-600 text-sm mb-4">Structure massive réalisée avec d'anciens outils de jardinage soudés à la main.</p>
-                    <a href="#" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">Consulter l'œuvre</a>
-                </div>
-            </div>
-
-        </div>
     </main>
-
-    <footer class="py-10 text-center text-gray-400 text-sm">
-        &copy; 2026 KABOSSES - Créations uniques.
-    </footer>
-
 </body>
 </html>
