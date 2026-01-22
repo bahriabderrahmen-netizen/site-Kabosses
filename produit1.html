@@ -6,6 +6,22 @@
     <title>KABOSSES - Fiche Œuvre</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    /* Animation d'entrée */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    /* Optionnel : transition douce sur les liens */
+    a {
+        transition: all 0.3s ease-in-out;
+    }
+</style>
 </head>
 <body class="bg-[#0f0f0f] text-white font-sans"> <nav class="p-8 flex justify-between items-center border-b border-gray-800">
         <a href="viewer.html" class="font-bold text-2xl tracking-tighter text-green-500">KABOSSES</a>
