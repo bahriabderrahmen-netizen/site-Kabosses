@@ -19,25 +19,23 @@
 </head>
 <body class="text-white font-sans">
 <div class="fixed top-8 right-8 z-[100]">
-    <button onmouseenter="toggleMenu()" id="menuBtn" class="group flex items-center space-x-3 bg-black/40 backdrop-blur-sm border border-[#b45309]/30 p-3 px-5 rounded-full hover:border-[#b45309] transition-all">
+    <button onclick="toggleMenu(event)" id="menuBtn" class="group flex items-center space-x-3 bg-black/40 backdrop-blur-sm border border-[#b45309]/30 p-3 px-5 rounded-full hover:border-[#b45309] transition-all">
         <span class="text-[10px] uppercase tracking-[0.3em] text-white">Menu</span>
         <div class="space-y-1.5">
             <span class="block w-6 h-0.5 bg-[#b45309]"></span>
-            <span class="block w-4 h-0.5 bg-white group-hover:w-6 transition-all"></span>
+            <span class="block w-4 h-0.5 bg-white transition-all"></span>
         </div>
     </button>
 </div>
 
 <div id="menuOverlay" 
-     onmouseleave="closeMenu()" 
-     class="fixed top-0 left-0 w-full h-[16.6vh] bg-[#0a0a0a]/80 backdrop-blur-[2px] border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+     class="fixed top-0 left-0 w-full h-[16.6vh] bg-[#0a0a0a]/95 backdrop-blur-[2px] border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
     
-    <nav class="flex flex-wrap justify-center gap-12 md:gap-20 px-6">
-        <a href="index.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Accueil</a>
-        <a href="viewer.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Galerie</a>
-        <a href="artiste.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">L'Artiste</a>
-        <a href="#" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Événements</a>
-        <a href="#" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Contact</a>
+    <nav class="flex flex-wrap justify-center gap-10 md:gap-20 px-6">
+        <a href="index.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Accueil</a>
+        <a href="viewer.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Galerie</a>
+        <a href="artiste.html" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">L'Artiste</a>
+        <a href="#" class="text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Contact</a>
     </nav>
 </div>
 
@@ -81,18 +79,31 @@
     </main>
 <script>
     const menu = document.getElementById('menuOverlay');
-    const btnText = document.querySelector('#menuBtn span');
+    const menuBtn = document.getElementById('menuBtn');
 
-    function toggleMenu() {
-        menu.classList.remove('-translate-y-full');
-        menu.classList.add('translate-y-0');
+    // Fonction pour ouvrir/fermer au clic sur le bouton
+    function toggleMenu(event) {
+        event.stopPropagation(); // Empêche la fermeture immédiate
+        menu.classList.toggle('-translate-y-full');
+        menu.classList.toggle('translate-y-0');
     }
 
-    function closeMenu() {
-        menu.classList.remove('translate-y-0');
+    // Fonction pour fermer si on clique en dehors du menu
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = menu.contains(event.target);
+        const isClickOnButton = menuBtn.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnButton) {
+            menu.classList.add('-translate-y-full');
+            menu.classList.remove('translate-y-0');
+        }
+    });
+
+    // Garde le repli automatique à la souris pour l'ordinateur
+    menu.addEventListener('mouseleave', () => {
         menu.classList.add('-translate-y-full');
-        btnText.innerText = "Menu";
-    }
+        menu.classList.remove('translate-y-0');
+    });
 </script>
 </body>
 </html>
