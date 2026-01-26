@@ -78,6 +78,21 @@
 
         </div>
     </main>
-
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menuOverlay');
+        const btnText = document.querySelector('#menuBtn span');
+        
+        if (menu.classList.contains('-translate-y-full')) {
+            menu.classList.remove('-translate-y-full');
+            menu.classList.add('translate-y-0');
+            btnText.innerText = "Fermer";
+        } else {
+            menu.classList.remove('translate-y-0');
+            menu.classList.add('-translate-y-full');
+            btnText.innerText = "Menu";
+        }
+    }
+</script>
 </body>
 </html>
