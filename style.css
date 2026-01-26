@@ -1,0 +1,5 @@
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.rust-text { color: #b45309; }
+.rust-border { border-color: #b45309; }

@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KABOSSES - Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Animation d'ouverture */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    /* 1. Tes animations existantes */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        body {
-            animation: fadeIn 1.5s ease-out forwards;
-            background-color: #0f0f0f;
-            margin: 0;
-            height: 100vh;
-        }
+    /* 2. Ton style pour le corps de page */
+    body {
+        animation: fadeIn 1.5s ease-out forwards;
+        background-color: #0f0f0f;
+        margin: 0;
+        height: 100vh;
+        overflow-x: hidden; /* Empêche le défilement horizontal sur mobile */
+    }
 
-        /* Image de fond avec opacité réduite */
-        .bg-hero {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('assets/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3; /* Opacité réduite pour la lecture */
-            z-index: -1; /* Place l'image derrière le texte */
-            filter: grayscale(50%); /* Un peu de gris pour le style industriel */
-        }
-    </style>
+    /* 3. Ton nouveau code pour l'image de fond responsive */
+    .bg-hero {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('assets/hero.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: -1;
+        filter: grayscale(50%);
+    }
+
+    /* 4. Cache la barre de scroll pour le menu horizontal sur tel */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
 </head>
 <body class="text-white font-sans">
  <div id="containerBtn" class="fixed top-6 right-6 z-[100] transition-opacity duration-300">
@@ -48,13 +60,14 @@
 
 <div id="menuOverlay" 
      onmouseleave="closeMenu()" 
-     class="fixed top-0 left-0 w-full h-[30vh] md:h-[16.6vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+     class="fixed top-0 left-0 w-full h-[20vh] md:h-[16.6vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
     
-    <nav class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 px-6">
-        <a href="index.html" class="text-[12px] md:text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Accueil</a>
-        <a href="viewer.html" class="text-[12px] md:text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Galerie</a>
-        <a href="artiste.html" class="text-[12px] md:text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">L'Artiste</a>
-        <a href="#" class="text-[12px] md:text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Contact</a>
+    <nav class="flex flex-row items-center justify-start md:justify-center gap-6 md:gap-16 px-8 overflow-x-auto no-scrollbar w-full md:w-auto">
+        <a href="index.html" class="whitespace-nowrap text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309]">Accueil</a>
+        <a href="viewer.html" class="whitespace-nowrap text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309]">Galerie</a>
+        <a href="artiste.html" class="whitespace-nowrap text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309]">L'Artiste</a>
+        <a href="#" class="whitespace-nowrap text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309]">Événements</a>
+        <a href="#" class="whitespace-nowrap text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309]">Contact</a>
     </nav>
 </div>
     <div class="absolute bottom-12 text-[10px] uppercase tracking-[0.5em] text-gray-500">
