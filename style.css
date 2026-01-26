@@ -1,5 +1,47 @@
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* 1. Configuration de base pour toutes les pages */
+body {
+    margin: 0;
+    /* IMPORTANT : remplace 'height: 100vh' par 'min-height: 100vh' */
+    min-height: 100vh; 
+    background-color: #0f0f0f;
+    color: white;
+    font-family: sans-serif;
+    overflow-x: hidden; /* Empêche le bug du scroll horizontal sur mobile */
+    display: flex;
+    flex-direction: column;
+}
 
+/* 2. Gestion du Menu Horizontal (Cache la barre de scroll) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+/* 3. Couleurs personnalisées (Rust) */
 .rust-text { color: #b45309; }
 .rust-border { border-color: #b45309; }
+
+/* 4. Image de fond Responsive (à utiliser sur chaque page avec <div class="bg-hero"></div>) */
+.bg-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Opacité légère pour laisser lire le texte */
+    z-index: -1;
+    filter: grayscale(40%);
+}
+
+/* 5. Animation d'entrée */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+}
