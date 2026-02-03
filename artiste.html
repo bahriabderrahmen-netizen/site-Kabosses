@@ -21,12 +21,12 @@
 
     <div id="menuOverlay" 
          onmouseleave="closeMenu()" 
-         class="fixed top-0 left-0 w-full h-[40vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
+         class="fixed top-0 left-0 w-full h-[50vh] md:h-[40vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
         
         <nav class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6">
             <a href="index.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Accueil</a>
             <a href="viewer.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Galerie</a>
-            <a href="artiste.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-[#b45309] transition">L'Artiste</a>
+            <a href="artiste.html" class="text-[12px] uppercase tracking-[0.4em] font-bold text-[#b45309] transition">L'Artiste</a>
             <a href="#" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Contact</a>
         </nav>
 
@@ -37,26 +37,25 @@
 
     <main class="max-w-6xl mx-auto px-6 py-24">
         <div class="mb-16">
-            <a href="index.html" class="font-bold text-2xl tracking-tighter rust-text uppercase">Kabosses</a>
+            <a href="index.html" class="font-bold text-2xl tracking-tighter text-[#b45309] uppercase">Kabosses</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
             <div class="relative group">
                 <div class="absolute -inset-4 border border-[#b45309]/30 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-500"></div>
                 <img src="assets/artiste.jpg" alt="L'artiste à l'œuvre" class="relative w-full grayscale hover:grayscale-0 transition duration-700 shadow-2xl border border-white/5">
             </div>
 
             <div>
-                <h2 class="text-[10px] uppercase tracking-[0.5em] rust-text mb-4">Le sculpteur</h2>
-                <h1 class="text-5xl font-extrabold mb-8 tracking-tighter">DOMPTER LE <span class="rust-text">MÉTAL</span></h1>
+                <h2 class="text-[10px] uppercase tracking-[0.5em] text-[#b45309] mb-4">Le sculpteur</h2>
+                <h1 class="text-5xl font-extrabold mb-8 tracking-tighter uppercase">DOMPTER LE <span class="text-[#b45309]">MÉTAL</span></h1>
                 
                 <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
                     <p>
-                        Depuis son atelier, l'artiste de **Kabosses** redonne vie aux métaux oubliés. Chaque pièce est le fruit d'une rencontre entre des objets industriels délaissés et une vision créative unique.
+                        Depuis son atelier, l'artiste de **Kabosses** redonne vie aux métaux oubliés. Chaque pièce est le fruit d'une rencontre entre des objets industriels délaissés.
                     </p>
                     <p>
-                        Spécialisé dans la soudure à la main, il transforme la rigidité de l'acier et la rugosité de la rouille en silhouettes vivantes, souvent teintées d'humour et de poésie.
+                        Spécialisé dans la soudure à la main, il transforme la rigidité de l'acier en silhouettes vivantes.
                     </p>
                     <p class="italic border-l-2 border-[#b45309] pl-6 py-2 text-white">
                         "Rien ne se perd, tout se transforme en art."
@@ -64,7 +63,7 @@
                 </div>
 
                 <div class="mt-12">
-                    <a href="viewer.html" class="inline-block border border-[#b45309] rust-text px-8 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-[#b45309] hover:text-white transition-all">
+                    <a href="viewer.html" class="inline-block border border-[#b45309] text-[#b45309] px-8 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-[#b45309] hover:text-white transition-all">
                         Voir ses créations
                     </a>
                 </div>

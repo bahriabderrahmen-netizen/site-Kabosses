@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0a0a0a] text-white font-sans overflow-y-auto min-h-screen selection:bg-[#b45309]">
+<body class="bg-[#0a0a0a] text-white font-sans selection:bg-[#b45309] flex flex-col min-h-screen overflow-y-auto">
 
     <div id="containerBtn" class="fixed top-6 right-6 z-[100] transition-opacity duration-300">
         <button onclick="toggleMenu(event)" class="group flex items-center space-x-3 bg-black/60 backdrop-blur-md border border-[#b45309]/50 p-3 px-5 rounded-full hover:border-[#b45309] active:scale-95 transition-all">
@@ -21,13 +21,13 @@
 
     <div id="menuOverlay" 
          onmouseleave="closeMenu()" 
-         class="fixed top-0 left-0 w-full h-[40vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
+         class="fixed top-0 left-0 w-full h-[55vh] md:h-[30vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
         
         <nav class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6">
-            <a href="index.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Accueil</a>
-            <a href="viewer.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-[#b45309] transition">Galerie</a>
-            <a href="artiste.html" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">L'Artiste</a>
-            <a href="#" class="text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Contact</a>
+            <a href="index.html" class="text-[14px] md:text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Accueil</a>
+            <a href="viewer.html" class="text-[14px] md:text-[12px] uppercase tracking-[0.4em] font-bold text-[#b45309] transition">Galerie</a>
+            <a href="artiste.html" class="text-[14px] md:text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">L'Artiste</a>
+            <a href="#" class="text-[14px] md:text-[12px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Contact</a>
         </nav>
         <div class="mt-12 text-[9px] uppercase tracking-[0.5em] text-gray-600">
             Kabosses • Sculptures Métalliques
@@ -39,8 +39,8 @@
         <a href="index.html" class="text-gray-500 hover:text-white uppercase text-[10px] tracking-[0.3em] transition">← Retour</a>
     </nav>
 
-    <main class="max-w-7xl mx-auto p-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+    <main class="flex-grow max-w-7xl mx-auto p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             
             <div class="group">
                 <div class="overflow-hidden bg-[#1a1a1a] mb-6 border border-white/5 relative">
@@ -69,7 +69,7 @@
         </div>
     </main>
 
-    <footer class="py-12 flex flex-col items-center justify-center border-t border-white/5 mt-20">
+    <footer class="py-12 flex flex-col items-center justify-center border-t border-white/5 mt-10">
         <div class="text-[10px] uppercase tracking-[0.5em] text-gray-500">
             Kabosses • Sculpture Métallique • 2026
         </div>
