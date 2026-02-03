@@ -27,19 +27,27 @@
     </div>
 
     <div id="menuOverlay" 
-         class="fixed top-0 left-0 w-full bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
-        
-        <nav id="mobile-nav" class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6">
-            <a href="index.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Accueil</a>
-            <a href="viewer.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Galerie</a>
-            <a href="artiste.html" class="text-[14px] uppercase tracking-[0.4em] font-bold text-[#b45309] transition">L'Artiste</a>
-            <a href="#" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition">Contact</a>
-        </nav>
+     onmouseleave="closeMenu()" 
+     class="fixed top-0 left-0 w-full bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center"
+     style="height: 60vh !important;"> <nav class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6" 
+         style="display: flex !important; flex-direction: column !important;"> 
+        <a href="index.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Accueil</a>
+        <a href="viewer.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Galerie</a>
+        <a href="artiste.html" class="text-[14px] uppercase tracking-[0.4em] font-bold text-[#b45309]">L'Artiste</a>
+        <a href="#" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Contact</a>
+    </nav>
 
-        <div class="mt-12 text-[9px] uppercase tracking-[0.5em] text-gray-600">
-            Kabosses • Sculpture Métallique
-        </div>
+    <style>
+        /* Ce petit bloc de CSS interne va forcer le retour à l'horizontal sur PC uniquement */
+        @media (min-width: 768px) {
+            nav { flex-direction: row !important; }
+        }
+    </style>
+
+    <div class="mt-12 text-[9px] uppercase tracking-[0.5em] text-gray-600">
+        Kabosses • Sculpture Métallique
     </div>
+</div>
 
     <main class="flex-grow max-w-6xl mx-auto px-6 py-24">
         <div class="mb-16">
