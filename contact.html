@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - KABOSSES</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0a0a0a] text-white font-sans overflow-y-auto min-h-screen">
+    
+    <div id="containerBtn" class="fixed top-6 right-6 z-[100]">
+        <button onclick="toggleMenu(event)" class="group flex items-center space-x-3 bg-black/60 backdrop-blur-md border border-[#b45309]/50 p-3 px-5 rounded-full hover:border-[#b45309]">
+            <span class="text-[10px] uppercase tracking-[0.3em]">Menu</span>
+            <div class="space-y-1.5"><span class="block w-6 h-0.5 bg-[#b45309]"></span><span class="block w-4 h-0.5 bg-white group-hover:w-6 transition-all"></span></div>
+        </button>
+    </div>
+
+    <div id="menuOverlay" class="fixed top-0 left-0 w-full h-[50vh] z-[90] bg-[#0a0a0a]/98 backdrop-blur-xl transform -translate-y-full transition-transform duration-500 flex flex-col items-center justify-center">
+        <nav class="flex flex-col md:flex-row items-center gap-12 text-xl tracking-[0.4em] uppercase font-light">
+            <a href="index.html" class="hover:text-[#b45309]">Accueil</a>
+            <a href="viewer.html" class="hover:text-[#b45309]">Galerie</a>
+            <a href="artiste.html" class="hover:text-[#b45309]">L'Artiste</a>
+            <a href="contact.html" class="text-[#b45309]">Contact</a>
+        </nav>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        <h2 class="text-[10px] uppercase tracking-[0.5em] text-[#b45309] mb-4">Une idée ? Un projet ?</h2>
+        <h1 class="text-5xl font-black mb-12 tracking-tighter uppercase">CONTACTER <span class="text-[#b45309]">L'ATELIER</span></h1>
+
+        <form action="#" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <input type="text" placeholder="NOM" class="bg-transparent border-b border-white/20 p-4 focus:border-[#b45309] outline-none transition uppercase text-xs tracking-widest">
+                <input type="email" placeholder="EMAIL" class="bg-transparent border-b border-white/20 p-4 focus:border-[#b45309] outline-none transition uppercase text-xs tracking-widest">
+            </div>
+            <textarea rows="6" placeholder="VOTRE MESSAGE" class="w-full bg-transparent border-b border-white/20 p-4 focus:border-[#b45309] outline-none transition uppercase text-xs tracking-widest"></textarea>
+            <button class="border-2 border-[#b45309] text-[#b45309] px-12 py-4 font-bold uppercase tracking-[0.3em] hover:bg-[#b45309] hover:text-white transition-all">Envoyer</button>
+        </form>
+    </main>
+
+    <script>
+        const menu = document.getElementById('menuOverlay');
+        const btn = document.getElementById('containerBtn');
+        function toggleMenu(e) { e.stopPropagation(); menu.classList.remove('-translate-y-full'); menu.classList.add('translate-y-0'); btn.style.opacity = '0'; }
+        function closeMenu() { menu.classList.remove('translate-y-0'); menu.classList.add('-translate-y-full'); btn.style.opacity = '1'; }
+    </script>
+</body>
+</html>
