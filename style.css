@@ -1,28 +1,32 @@
 /* 1. Configuration de base pour toutes les pages */
-body {
+html, body {
     margin: 0;
-    /* IMPORTANT : remplace 'height: 100vh' par 'min-height: 100vh' */
+    padding: 0;
+    /* Débloque le défilement vertical */
     min-height: 100vh; 
-    background-color: #0f0f0f;
+    height: auto;
+    background-color: #0a0a0a;
     color: white;
     font-family: sans-serif;
-    overflow-x: hidden; /* Empêche le bug du scroll horizontal sur mobile */
+    /* Empêche le bug du scroll horizontal sur mobile */
+    overflow-x: hidden; 
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
-/* 2. Gestion du Menu Horizontal (Cache la barre de scroll) */
+/* 2. Gestion du Menu et Scrollbar */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { 
     -ms-overflow-style: none; 
     scrollbar-width: none; 
 }
 
-/* 3. Couleurs personnalisées (Rust) */
+/* 3. Identité Visuelle Kabosses (Rust) */
 .rust-text { color: #b45309; }
 .rust-border { border-color: #b45309; }
 
-/* 4. Image de fond Responsive (à utiliser sur chaque page avec <div class="bg-hero"></div>) */
+/* 4. Image de fond Responsive (optionnelle) */
 .bg-hero {
     position: fixed;
     top: 0;
@@ -32,16 +36,54 @@ body {
     background-image: url('assets/hero.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.2; /* Opacité légère pour laisser lire le texte */
+    opacity: 0.15;
     z-index: -1;
-    filter: grayscale(40%);
+    filter: grayscale(60%);
 }
 
-/* 5. Animation d'entrée */
+/* 5. Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 .fade-in {
-    animation: fadeIn 1.5s ease-out forwards;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* 6. Correction Mobile pour les menus standards */
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    /* Force l'empilement vertical sur téléphone */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    /* Ajuste la taille du menu overlay pour mobile */
+    #menuOverlay {
+        height: 50vh !important;
+    }
+
+    /* Empêche le bouton de masquer du contenu important */
+    .menu-container {
+        height: min-content; 
+    }
+}
+
+/* 7. Effets sur les sculptures (Galerie) */
+.group img {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
