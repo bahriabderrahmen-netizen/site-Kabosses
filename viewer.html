@@ -21,12 +21,13 @@
 
     <div id="menuOverlay" 
          onmouseleave="closeMenu()" 
-         class="fixed top-0 left-0 w-full h-[50vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
-        <nav class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <a href="index.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">Accueil</a>
-            <a href="viewer.html" class="text-xs uppercase tracking-[0.4em] text-[#b45309] font-bold">Galerie</a>
-            <a href="artiste.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">L'Artiste</a>
-            <a href="contact.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">Contact</a>
+         class="fixed top-0 left-0 w-full h-[10vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/30 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+        
+        <nav class="flex items-center justify-center gap-6 md:gap-16 px-6 w-full">
+            <a href="index.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Accueil</a>
+            <a href="viewer.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#b45309]">Galerie</a>
+            <a href="artiste.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">L'Artiste</a>
+            <a href="contact.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Contact</a>
         </nav>
     </div>
 
@@ -36,28 +37,61 @@
 
     <main class="max-w-7xl mx-auto p-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            
             <div class="group">
                 <div class="overflow-hidden bg-[#1a1a1a] mb-6 border border-white/5">
                     <img src="assets/1.jpg" alt="Le Veilleur" class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition duration-700">
                 </div>
                 <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-2">Le Veilleur</h3>
-                <a href="produit1.html" class="text-[#b45309] text-[10px] uppercase font-bold tracking-[0.3em] border-b border-[#b45309]/30 pb-1 hover:border-[#b45309]">Consulter</a>
+                <a href="produit1.html" class="text-[#b45309] text-[10px] uppercase font-bold tracking-[0.3em] border-b border-[#b45309]/30 pb-1 hover:border-[#b45309] transition-all">Consulter l'œuvre</a>
             </div>
+
+            <div class="group">
+                <div class="overflow-hidden bg-[#1a1a1a] mb-6 border border-white/5 opacity-40">
+                    <img src="assets/2.jpg" alt="L'Envol" class="w-full h-96 object-cover grayscale">
+                </div>
+                <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-2 text-gray-600">L'Envol</h3>
+                <span class="text-gray-700 text-[10px] uppercase font-bold tracking-[0.3em]">En cours de création...</span>
             </div>
+
+            <div class="group">
+                <div class="overflow-hidden bg-[#1a1a1a] mb-6 border border-white/5 opacity-40">
+                    <img src="assets/3.jpg" alt="Résilience" class="w-full h-96 object-cover grayscale">
+                </div>
+                <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-2 text-gray-600">Résilience</h3>
+                <span class="text-gray-700 text-[10px] uppercase font-bold tracking-[0.3em]">En cours de création...</span>
+            </div>
+
+        </div>
     </main>
 
     <script>
         const menu = document.getElementById('menuOverlay');
         const btn = document.getElementById('containerBtn');
+
         function toggleMenu(e) {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
             menu.classList.remove('-translate-y-full');
-            btn.classList.add('opacity-0', 'pointer-events-none');
+            if (btn) {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
         }
+
         function closeMenu() {
             menu.classList.add('-translate-y-full');
-            btn.classList.remove('opacity-0', 'pointer-events-none');
+            if (btn) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }
         }
+
+        // Sécurité : Fermer au clic ailleurs
+        document.addEventListener('click', (e) => {
+            if (menu && !menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>

@@ -21,12 +21,13 @@
 
     <div id="menuOverlay" 
          onmouseleave="closeMenu()" 
-         class="fixed top-0 left-0 w-full h-[50vh] bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center">
-        <nav class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <a href="index.html" class="text-xs uppercase tracking-[0.4em] text-[#b45309] font-bold">Accueil</a>
-            <a href="viewer.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">Galerie</a>
-            <a href="artiste.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">L'Artiste</a>
-            <a href="contact.html" class="text-xs uppercase tracking-[0.4em] text-gray-400 hover:text-[#b45309] transition">Contact</a>
+         class="fixed top-0 left-0 w-full h-[10vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/30 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+        
+        <nav class="flex items-center justify-center gap-6 md:gap-16 px-6 w-full">
+            <a href="index.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-[#b45309] font-bold">Accueil</a>
+            <a href="viewer.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Galerie</a>
+            <a href="artiste.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">L'Artiste</a>
+            <a href="contact.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Contact</a>
         </nav>
     </div>
 
@@ -44,15 +45,32 @@
     <script>
         const menu = document.getElementById('menuOverlay');
         const btn = document.getElementById('containerBtn');
+
         function toggleMenu(e) {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
             menu.classList.remove('-translate-y-full');
-            btn.classList.add('opacity-0', 'pointer-events-none');
+            // Cache le bouton pour libérer l'espace visuel des 10%
+            if (btn) {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
         }
+
         function closeMenu() {
             menu.classList.add('-translate-y-full');
-            btn.classList.remove('opacity-0', 'pointer-events-none');
+            // Réaffiche le bouton quand le menu se ferme
+            if (btn) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }
         }
+
+        // Fermeture de sécurité si on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (menu && !menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>

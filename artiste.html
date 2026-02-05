@@ -6,13 +6,6 @@
     <title>L'Artiste - KABOSSES</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Sécurité pour le menu mobile si Tailwind tarde */
-        @media (max-width: 767px) {
-            #mobile-nav { flex-direction: column !important; gap: 2rem !important; }
-            #menuOverlay { height: 60vh !important; }
-        }
-    </style>
 </head>
 <body class="bg-[#0a0a0a] text-white font-sans selection:bg-[#b45309] overflow-y-auto min-h-screen flex flex-col">
 
@@ -27,27 +20,16 @@
     </div>
 
     <div id="menuOverlay" 
-     onmouseleave="closeMenu()" 
-     class="fixed top-0 left-0 w-full bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-[#b45309]/20 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex flex-col items-center justify-center"
-     style="height: 60vh !important;"> <nav class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6" 
-         style="display: flex !important; flex-direction: column !important;"> 
-        <a href="index.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Accueil</a>
-        <a href="viewer.html" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Galerie</a>
-        <a href="artiste.html" class="text-[14px] uppercase tracking-[0.4em] font-bold text-[#b45309]">L'Artiste</a>
-        <a href="#" class="text-[14px] uppercase tracking-[0.4em] font-light text-gray-300 hover:text-[#b45309]">Contact</a>
-    </nav>
-
-    <style>
-        /* Ce petit bloc de CSS interne va forcer le retour à l'horizontal sur PC uniquement */
-        @media (min-width: 768px) {
-            nav { flex-direction: row !important; }
-        }
-    </style>
-
-    <div class="mt-12 text-[9px] uppercase tracking-[0.5em] text-gray-600">
-        Kabosses • Sculpture Métallique
+         onmouseleave="closeMenu()" 
+         class="fixed top-0 left-0 w-full h-[10vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/30 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+        
+        <nav class="flex items-center justify-center gap-6 md:gap-16 px-6 w-full">
+            <a href="index.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Accueil</a>
+            <a href="viewer.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Galerie</a>
+            <a href="artiste.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#b45309]">L'Artiste</a>
+            <a href="contact.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Contact</a>
+        </nav>
     </div>
-</div>
 
     <main class="flex-grow max-w-6xl mx-auto px-6 py-24">
         <div class="mb-16">
@@ -55,7 +37,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
             <div class="relative group">
                 <div class="absolute -inset-4 border border-[#b45309]/30 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-500"></div>
                 <img src="assets/artiste.jpg" alt="L'artiste à l'œuvre" class="relative w-full grayscale hover:grayscale-0 transition duration-700 shadow-2xl border border-white/5">
@@ -66,55 +47,4 @@
                 <h1 class="text-5xl font-extrabold mb-8 tracking-tighter uppercase leading-tight">DOMPTER LE <span class="text-[#b45309]">MÉTAL</span></h1>
                 
                 <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
-                    <p>
-                        Depuis son atelier, l'artiste de **Kabosses** redonne vie aux métaux oubliés. Chaque pièce est le fruit d'une rencontre entre des objets industriels délaissés et une vision créative unique.
-                    </p>
-                    <p>
-                        Spécialisé dans la soudure à la main, il transforme la rigidité de l'acier et la rugosité de la rouille en silhouettes vivantes, souvent teintées d'humour et de poésie.
-                    </p>
-                    <p class="italic border-l-2 border-[#b45309] pl-6 py-2 text-white">
-                        "Rien ne se perd, tout se transforme en art."
-                    </p>
-                </div>
-
-                <div class="mt-12">
-                    <a href="viewer.html" class="inline-block border border-[#b45309] text-[#b45309] px-8 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-[#b45309] hover:text-white transition-all">
-                        Voir ses créations
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="py-12 flex flex-col items-center justify-center border-t border-white/5 mt-10">
-        <div class="text-[10px] uppercase tracking-[0.5em] text-gray-500">
-            Kabosses • Sculpture Métallique • 2024
-        </div>
-    </footer>
-
-    <script>
-        const menu = document.getElementById('menuOverlay');
-        const containerBtn = document.getElementById('containerBtn');
-
-        function toggleMenu(event) {
-            event.stopPropagation();
-            menu.classList.remove('-translate-y-full');
-            menu.classList.add('translate-y-0');
-            containerBtn.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        function closeMenu() {
-            menu.classList.remove('translate-y-0');
-            menu.classList.add('-translate-y-full');
-            containerBtn.classList.remove('opacity-0', 'pointer-events-none');
-        }
-
-        // Fermeture automatique au clic sur un lien ou à l'extérieur
-        document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
-                closeMenu();
-            }
-        });
-    </script>
-</body>
-</html>
+                    <p>Depuis son atelier, l'artiste de **Kabosses** redonne
