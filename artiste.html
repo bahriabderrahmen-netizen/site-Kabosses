@@ -47,4 +47,52 @@
                 <h1 class="text-5xl font-extrabold mb-8 tracking-tighter uppercase leading-tight">DOMPTER LE <span class="text-[#b45309]">MÉTAL</span></h1>
                 
                 <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
-                    <p>Depuis son atelier, l'artiste de **Kabosses** redonne
+                    <p>Depuis son atelier, l'artiste de **Kabosses** redonne vie aux métaux oubliés. Chaque pièce est le fruit d'une rencontre entre des objets industriels délaissés et une vision créative unique.</p>
+                    <p>Spécialisé dans la soudure à la main, il transforme la rigidité de l'acier et la rugosité de la rouille en silhouettes vivantes, souvent teintées d'humour et de poésie.</p>
+                    <p class="italic border-l-2 border-[#b45309] pl-6 py-2 text-white">"Rien ne se perd, tout se transforme en art."</p>
+                </div>
+
+                <div class="mt-12">
+                    <a href="viewer.html" class="inline-block border border-[#b45309] text-[#b45309] px-8 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-[#b45309] hover:text-white transition-all">
+                        Voir ses créations
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 flex flex-col items-center justify-center border-t border-white/5 mt-10">
+        <div class="text-[10px] uppercase tracking-[0.5em] text-gray-500">
+            Kabosses • Sculpture Métallique • 2026
+        </div>
+    </footer>
+
+    <script>
+        const menu = document.getElementById('menuOverlay');
+        const btn = document.getElementById('containerBtn');
+
+        function toggleMenu(e) {
+            if (e) e.stopPropagation();
+            menu.classList.remove('-translate-y-full');
+            if (btn) {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('-translate-y-full');
+            if (btn) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            if (menu && !menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>

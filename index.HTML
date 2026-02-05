@@ -42,14 +42,13 @@
         </div>
     </main>
 
-    <script>
+   <script>
         const menu = document.getElementById('menuOverlay');
         const btn = document.getElementById('containerBtn');
 
         function toggleMenu(e) {
             if (e) e.stopPropagation();
-            menu.classList.remove('-translate-y-full');
-            // Cache le bouton pour libérer l'espace visuel des 10%
+            if (menu) menu.classList.remove('-translate-y-full');
             if (btn) {
                 btn.style.opacity = '0';
                 btn.style.pointerEvents = 'none';
@@ -57,15 +56,13 @@
         }
 
         function closeMenu() {
-            menu.classList.add('-translate-y-full');
-            // Réaffiche le bouton quand le menu se ferme
+            if (menu) menu.classList.add('-translate-y-full');
             if (btn) {
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
             }
         }
 
-        // Fermeture de sécurité si on clique en dehors
         document.addEventListener('click', (e) => {
             if (menu && !menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
                 closeMenu();
