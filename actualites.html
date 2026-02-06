@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - KABOSSES</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0a0a0a] text-white font-sans overflow-y-auto min-h-screen">
+
+    <div id="containerBtn" class="fixed top-6 right-6 z-[100] transition-opacity duration-300">
+        <button onclick="toggleMenu(event)" class="group flex items-center space-x-3 bg-black/60 backdrop-blur-md border border-[#b45309]/50 p-3 px-5 rounded-full hover:border-[#b45309]">
+            <span class="text-[10px] uppercase tracking-[0.3em]">Menu</span>
+            <div class="space-y-1.5">
+                <span class="block w-6 h-0.5 bg-[#b45309]"></span>
+                <span class="block w-4 h-0.5 bg-white group-hover:w-6 transition-all"></span>
+            </div>
+        </button>
+    </div>
+
+    <div id="menuOverlay" onmouseleave="closeMenu()" 
+         class="fixed top-0 left-0 w-full h-[10vh] bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#b45309]/30 z-[90] transform -translate-y-full transition-transform duration-500 ease-out flex items-center justify-center">
+        <nav class="flex items-center justify-center gap-6 md:gap-16 px-6 w-full">
+            <a href="index.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Accueil</a>
+            <a href="viewer.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Galerie</a>
+            <a href="artiste.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">L'Artiste</a>
+            <a href="actualites.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#b45309]">Actualités</a>
+            <a href="contact.html" class="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light text-gray-300 hover:text-[#b45309] transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <nav class="p-8 border-b border-white/10 sticky top-0 bg-[#0a0a0a]/80 backdrop-blur-md z-50">
+        <a href="index.html" class="font-bold text-2xl tracking-tighter text-[#b45309] uppercase">Kabosses</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="text-[10px] uppercase tracking-[0.5em] text-[#b45309] mb-4">Presse & Événements</h2>
+        <h1 class="text-5xl font-black mb-16 tracking-tighter uppercase leading-tight">L'ART EN <span class="text-[#b45309]">MOUVEMENT</span></h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <div class="border border-white/10 p-8 hover:border-[#b45309]/50 transition-all group">
+                <span class="text-[10px] text-[#b45309] font-bold tracking-widest uppercase">Exposition</span>
+                <h3 class="text-2xl font-bold mt-2 mb-4 uppercase">Galerie des Métaux - Paris</h3>
+                <p class="text-gray-400 mb-6">Arnaud présente ses dernières sculptures lors d'une exposition collective dédiée à l'art de la récupération.</p>
+                <span class="text-xs text-gray-500 font-mono">Mars 2026</span>
+            </div>
+
+            <div class="border border-white/10 p-8 hover:border-[#b45309]/50 transition-all group">
+                <span class="text-[10px] text-[#b45309] font-bold tracking-widest uppercase">Coupure de Presse</span>
+                <h3 class="text-2xl font-bold mt-2 mb-4 uppercase">Le Monde de l'Art</h3>
+                <p class="text-gray-400 mb-6">"Le sculpteur Arnaud dompte le métal pour lui donner une âme poétique..." - Reportage spécial.</p>
+                <span class="text-xs text-gray-500 font-mono">Janvier 2026</span>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const menu = document.getElementById('menuOverlay');
+        const btn = document.getElementById('containerBtn');
+
+        function toggleMenu(e) {
+            if (e) e.stopPropagation();
+            if (menu) menu.classList.remove('-translate-y-full');
+            if (btn) {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+
+        function closeMenu() {
+            if (menu) menu.classList.add('-translate-y-full');
+            if (btn) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            if (menu && !menu.contains(e.target) && !menu.classList.contains('-translate-y-full')) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>
