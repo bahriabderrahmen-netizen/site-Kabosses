@@ -38,3 +38,12 @@ html, body {
     background: #b45309;
     border-radius: 10px;
 }
+/* Rendre le scroll du menu invisible mais actif */
+#menuOverlay {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Edge */
+}
+
+#menuOverlay::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
