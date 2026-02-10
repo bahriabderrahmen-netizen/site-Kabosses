@@ -47,3 +47,19 @@ html, body {
 #menuOverlay::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
 }
+#menuOverlay {
+    /* Permet un scroll horizontal fluide sur mobile */
+    overflow-x: auto; 
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Scroll "radical" et fluide sur iPhone */
+    scrollbar-width: none; /* Cache la barre sur Firefox */
+}
+
+#menuOverlay::-webkit-scrollbar {
+    display: none; /* Cache la barre sur Chrome/Safari */
+}
+
+/* Empêche les liens de passer à la ligne suivante */
+.whitespace-nowrap {
+    white-space: nowrap;
+}
